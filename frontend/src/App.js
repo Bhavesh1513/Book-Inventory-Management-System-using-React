@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BookTable from "./components/BookTable";
 import Modal from "./components/Modal";
-import BookDetailsPage from "./pages/BookDetailsPage"; // New component
+import BookDetailsPage from "./pages/BookDetailsPage";
+import { BASE_URL } from "./constants";
 import "./index.css";
+
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -11,14 +13,14 @@ const App = () => {
   const [modalType, setModalType] = useState("add");
   const [currentBook, setCurrentBook] = useState(null);
 
-  // Fetch books on load
+
   useEffect(() => {
     fetchBooks();
   }, []);
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch("https://book-inventory-management-system-using.onrender.com/books");
+      const response = await fetch(`${BASE_URL}/books`);
       const data = await response.json();
       setBooks(data);
     } catch (error) {
@@ -40,7 +42,7 @@ const App = () => {
 
   const handleDeleteBook = async (id) => {
     try {
-      const response = await fetch(`https://book-inventory-management-system-using.onrender.com/books/${id}`, {
+      const response = await fetch(`${BASE_URL}/books/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -56,22 +58,22 @@ const App = () => {
   const handleSaveBook = async (book) => {
     try {
       if (modalType === "add") {
-        const response = await fetch("https://book-inventory-management-system-using.onrender.com/books", {
+        const response = await fetch(`${BASE_URL}/books`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(book),
         });
         if (response.ok) {
-          fetchBooks(); // Refresh list
+          fetchBooks();
         }
       } else {
-        const response = await fetch(`https://book-inventory-management-system-using.onrender.com/books/${book._id}`, {
+        const response = await fetch(`${BASE_URL}/books/${book._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(book),
         });
         if (response.ok) {
-          fetchBooks(); // Refresh list
+          fetchBooks(); 
         }
       }
       setIsModalOpen(false);
@@ -117,10 +119,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-// I4W8G0J2ybELHomE
-// mongodb+srv://chaudhrimvbhavesh15:I4W8G0J2ybELHomE@bookinventory.0z1uf.mongodb.net/?retryWrites=true&w=majority&appName=BookInventory
-
-// mongodb://localhost:27017

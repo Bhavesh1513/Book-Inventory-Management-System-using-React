@@ -1,0 +1,1 @@
+export const BASE_URL = "https://book-inventory-management-system-using.onrender.com";

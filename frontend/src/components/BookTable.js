@@ -21,7 +21,7 @@ const BookTable = ({ books, onEdit, onDelete }) => {
               </Link>
             </td>
             <td>{book.author}</td>
-            <td>
+            <td className="btns">
               <button className="button edit" onClick={() => onEdit(book)}>
                 Edit
               </button>
