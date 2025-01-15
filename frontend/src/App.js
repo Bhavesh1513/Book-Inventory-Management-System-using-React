@@ -18,7 +18,7 @@ const App = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch("http://localhost:3000/books");
+      const response = await fetch("https://book-inventory-management-system-using.onrender.com/books");
       const data = await response.json();
       setBooks(data);
     } catch (error) {
@@ -40,7 +40,7 @@ const App = () => {
 
   const handleDeleteBook = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/books/${id}`, {
+      const response = await fetch(`https://book-inventory-management-system-using.onrender.com/books/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -56,7 +56,7 @@ const App = () => {
   const handleSaveBook = async (book) => {
     try {
       if (modalType === "add") {
-        const response = await fetch("http://localhost:3000/books", {
+        const response = await fetch("https://book-inventory-management-system-using.onrender.com/books", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(book),
@@ -65,7 +65,7 @@ const App = () => {
           fetchBooks(); // Refresh list
         }
       } else {
-        const response = await fetch(`http://localhost:3000/books/${book._id}`, {
+        const response = await fetch(`https://book-inventory-management-system-using.onrender.com/books/${book._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(book),
