@@ -47,7 +47,7 @@ A book inventory management system built with React. The application allows user
 Make sure to replace the `BASE_URL` constant with the correct URL for your backend API.
 
 ```js
-const BASE_URL = 'http://your-api-endpoint.com';
+const BASE_URL = 'https://book-inventory-management-system-using.onrender.com';
 ```
 
 ### Running the Application
