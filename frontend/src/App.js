@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   const [books, setBooks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState("add");
+  const [modalType, setModalType] = useState("Add");
   const [currentBook, setCurrentBook] = useState(null);
 
 
@@ -31,13 +31,13 @@ const App = () => {
   };
 
   const handleAddBook = () => {
-    setModalType("add");
+    setModalType("Add");
     setCurrentBook(null);
     setIsModalOpen(true);
   };
 
   const handleEditBook = (book) => {
-    setModalType("edit");
+    setModalType("Edit");
     setCurrentBook(book);
     setIsModalOpen(true);
   };
@@ -60,7 +60,7 @@ const App = () => {
 
   const handleSaveBook = async (book) => {
     try {
-      if (modalType === "add") {
+      if (modalType === "Add") {
         const response = await fetch(`${BASE_URL}/books`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },

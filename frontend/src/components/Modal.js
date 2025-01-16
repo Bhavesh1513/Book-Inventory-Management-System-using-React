@@ -24,6 +24,7 @@ const Modal = ({ type, book, onClose, onSave }) => {
     
 
     setErrors(newErrors);
+    console.log(newErrors)
     return Object.keys(newErrors).length === 0;
   };
 
@@ -45,7 +46,7 @@ const Modal = ({ type, book, onClose, onSave }) => {
     <>
       <div className="overlay" onClick={onClose}></div>
       <div className="modal">
-        <h2>{type === "add" ? "Add Book" : "Edit Book"}</h2>
+        <h2>{type}</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -96,7 +97,7 @@ const Modal = ({ type, book, onClose, onSave }) => {
             required
           />
           {errors.price && <span className="error">{errors.price}</span>}
-          <button type="submit">Save</button>
+          <button type="submit">{type}</button>
         </form>
       </div>
     </>

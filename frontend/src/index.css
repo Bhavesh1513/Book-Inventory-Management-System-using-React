@@ -258,6 +258,16 @@ h1 {
   align-items: center;
 }
 
+.book-nf{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 22px;
+  color: red;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 15px;

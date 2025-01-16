@@ -15,7 +15,7 @@ const BookDetailsPage = ({ books }) => {
   };
 
   if (!book) {
-    return <div>Book not found</div>;
+    return <div className="book-nf">Book not found</div>;
   }
 
   return (
