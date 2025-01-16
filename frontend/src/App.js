@@ -5,6 +5,8 @@ import Modal from "./components/Modal";
 import BookDetailsPage from "./pages/BookDetailsPage";
 import { BASE_URL } from "./constants";
 import "./index.css";
+import { toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const App = () => {
@@ -24,7 +26,7 @@ const App = () => {
       const data = await response.json();
       setBooks(data);
     } catch (error) {
-      console.error("Error fetching books:", error);
+      toast.error("Failed to fetch books. Please try again later.");
     }
   };
 
@@ -47,11 +49,12 @@ const App = () => {
       });
       if (response.ok) {
         setBooks(books.filter((book) => book._id !== id));
+        toast.success("Book deleted successfully.");
       } else {
         console.error("Failed to delete book");
       }
     } catch (error) {
-      console.error("Error deleting book:", error);
+      toast.error("Error deleting book. Please try again later.");
     }
   };
 
@@ -65,6 +68,7 @@ const App = () => {
         });
         if (response.ok) {
           fetchBooks();
+          toast.success("Book added successfully.");
         }
       } else {
         const response = await fetch(`${BASE_URL}/books/${book._id}`, {
@@ -74,11 +78,13 @@ const App = () => {
         });
         if (response.ok) {
           fetchBooks(); 
+          toast.success("Book updated successfully.");
         }
       }
       setIsModalOpen(false);
     } catch (error) {
-      console.error("Error saving book:", error);
+      toast.error("Error saving book. Please try again later.");
+      
     }
   };
 

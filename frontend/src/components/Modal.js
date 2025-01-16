@@ -15,18 +15,13 @@ const Modal = ({ type, book, onClose, onSave }) => {
     if (!formData.title || !alphanumericRegex.test(formData.title)) {
       newErrors.title = "Title must be alphanumeric.";
     }
-    if (formData.description && !alphanumericRegex.test(formData.description)) {
-      newErrors.description = "Description must be alphanumeric.";
-    }
-    if (formData.bookContent && !alphanumericRegex.test(formData.bookContent)) {
-      newErrors.bookContent = "Book content must be alphanumeric.";
-    }
     if (formData.publisher && !alphanumericRegex.test(formData.publisher)) {
       newErrors.publisher = "Publisher must be alphanumeric.";
     }
     if (!formData.price || !numericRegex.test(formData.price)) {
       newErrors.price = "Price must be a numeric value.";
     }
+    
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -85,10 +85,55 @@ table td:nth-child(2n){
   transition: all 0.3s ease;
 }
 
+
 .button.add {
-  background-color: #EE7E3E;
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
   color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
 }
+
+.button.add:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.button.add:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.button.add:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+
 
 .button.edit {
   background-color: #FF9800;
@@ -228,8 +273,6 @@ table td:nth-child(2n){
 
 
 
-/*  */
-
 .button {
   padding: 12px 24px;
   border: none;
@@ -269,4 +312,249 @@ table td:nth-child(2n){
 .button.delete:hover {
   background-color: #D32F2F; 
   transform: translateY(-3px); 
+} */
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, p, table {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+body {
+  background-color: #0E0C20;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #EE7E3E;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* .table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+} */
+
+.table-container {
+  max-height: 450px;
+  overflow-y: auto; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  margin: 20px 0;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #EE7E3E;
+  color: #fff;
+}
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td:nth-child(2n) {
+  border-inline: 1px solid rgb(217, 210, 210);
+}
+
+.book-link {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.book-link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.button.add {
+  background-color: #27ae60;
+  color: #fff;
+  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+}
+
+.button.add:hover {
+  background-color: #1e8449;
+  box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+}
+
+.button.edit {
+  background-color: #11033f;
+  color: #fff;
+}
+
+.button.edit:hover {
+  background-color: #18094b;
+}
+
+.button.delete {
+  background-color: #F44336;
+  color: #fff;
+}
+
+.button.delete:hover {
+  background-color: #D32F2F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1001;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.modal form{
+  display: flex;
+  flex-direction: column;
+}
+
+.modal form input, .modal form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modal form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.modal form button {
+  background-color: #EE7E3E;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal form button:hover {
+  background-color: #e67e22;
+}
+
+.book-details {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.book-details h2 {
+  font-size: 2rem;
+  color: #EE7E3E;
+}
+
+.book-details p {
+  margin: 10px 0;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .book-details {
+    padding: 15px;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
 }
