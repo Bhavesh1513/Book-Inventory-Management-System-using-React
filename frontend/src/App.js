@@ -91,7 +91,7 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        <h1>Book Management</h1>
+        <h1>Book Inventory Management System</h1>
         <button className="button add" onClick={handleAddBook}>
           Add Book
         </button>

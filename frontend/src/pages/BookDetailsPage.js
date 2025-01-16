@@ -24,9 +24,14 @@ const BookDetailsPage = ({ books }) => {
       <p><strong>Author:</strong> {book.author}</p>
       <p><strong>Published Date:</strong> {formatDate(book.publishedDate)}</p>
       <p><strong>Publisher:</strong> {book.publisher}</p>
-     
-      <p><strong>Content:</strong> {book.bookContent}</p>
-      <p><strong>Price:</strong> ₹{book.price}</p>
+      <p><strong>Description:</strong> {book.description}</p>
+      
+      <div className="content">
+        <p><strong>Content:</strong></p>
+        <p>{book.bookContent}</p>
+      </div>
+      
+      <p className="price"><strong>Price:</strong> ₹{book.price}</p>
     </div>
   );
 };
