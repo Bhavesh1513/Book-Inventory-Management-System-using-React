@@ -84,3 +84,11 @@ This will create a `build` folder containing the optimized production build.
   /index.css               // Global styles
   - App.js                 // Main application component
 ```
+
+## Output:
+![image](https://github.com/user-attachments/assets/f66f405d-de35-4aee-83c3-469edc34dbed)
+![image](https://github.com/user-attachments/assets/72b510d6-9012-40a4-aa17-87ba9475ff11)
+![image](https://github.com/user-attachments/assets/09724fbf-6831-4a0a-bb10-78738136882b)
+![image](https://github.com/user-attachments/assets/a37a4d17-5772-4f9f-8fed-d8d055381d2a)
+
+
