@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Modal = ({ type, book, onClose, onSave }) => {
   const [formData, setFormData] = useState(
-    book || { title: "", author: "", description: "", publisher: "", bookContent: "", price: "" }
+    book || { title: "", author: "", description: "", publisher: "", publishedDate:"",bookContent: "", price: "" }
   );
 
   const [errors, setErrors] = useState({});
@@ -77,6 +77,14 @@ const Modal = ({ type, book, onClose, onSave }) => {
             type="text"
             name="publisher"
             value={formData.publisher}
+            onChange={handleChange}
+            placeholder="Publisher"
+          />
+
+          <input
+            type="date"
+            name="publishedDate"
+            value={formData.publishedDate}
             onChange={handleChange}
             placeholder="Publisher"
           />

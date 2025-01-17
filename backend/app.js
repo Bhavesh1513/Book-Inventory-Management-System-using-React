@@ -44,8 +44,7 @@ const bookSchema = new mongoose.Schema({
     },
     publishedDate: {
         type: Date,
-        default: Date.now(),
-        required:false
+        required:true
       },
     publisher: {
         type: String,
